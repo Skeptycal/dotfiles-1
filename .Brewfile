@@ -1,0 +1,20 @@
+# easy setup with homebrew via: brew bundle --global
+brew "awscli"
+brew "bash-completion"
+brew "git"
+brew "git-extras"
+brew "heroku"
+brew "openssl"
+brew "tldr"
+brew "yarn"
+
+# asdf requirements
+brew "autoconf"
+brew "automake"
+brew "coreutils"
+brew "libtool"
+brew "libxslt"
+brew "libyaml"
+brew "openssl"
+brew "readline"
+brew "unixodbc"

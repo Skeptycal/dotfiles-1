@@ -60,13 +60,18 @@ alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Goo
 alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 alias op="/Users/jon/Applications/1password-cli/op"
 
-# GPG + SSH setup
-# First, launch agent: gpgconf --launch gpg-agent
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-  . "${HOME}/.gpg-agent-info"
-  export GPG_AGENT_INFO
-  export SSH_AUTH_SOCK
-  export SSH_AGENT_PID
+# Enable gpg-agent if it is not running
+GPG_AGENT_SOCKET="$(gpgconf --list-dirs agent-ssh-socket)"
+if [ ! -S $GPG_AGENT_SOCKET ]; then
+  gpg-agent --daemon >/dev/null 2>&1
+  export GPG_TTY=$(tty)
+fi
+
+# Set SSH to use gpg-agent if it is configured to do so
+GNUPGCONFIG="${GNUPGHOME:-"$HOME/.gnupg"}/gpg-agent.conf"
+if [ -r "$GNUPGCONFIG" ] && grep -q enable-ssh-support "$GNUPGCONFIG"; then
+  unset SSH_AGENT_PID
+  export SSH_AUTH_SOCK=$GPG_AGENT_SOCKET
 fi
 
 function __prompt_command() {

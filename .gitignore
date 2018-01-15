@@ -1,8 +1,21 @@
 .adobe/
 .android/
 .asdf/
-.atom/
 .aws/
 .bash_history
+.cfg/
 .irb_history
+.npmrc
+.viminfo
 google-cloud-sdk/
+Applications/
+Desktop/
+Documents/
+Downloads/
+Dropbox/
+Google Drive/
+Library/
+Movies/
+Pictures/
+Projects/
+Public/

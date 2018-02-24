@@ -1,12 +1,11 @@
 SHELL_SESSION_HISTORY=0
+export EDITOR="code-insiders --wait"
 export HEROKU_ORGANIZATION=coffeeandcode
 
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-
-# hack for KP project to use a specific version of elasticsearch to run tests
-export PATH="/usr/local/opt/elasticsearch@2.4/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jon/google-cloud-sdk/path.bash.inc' ]; then source '/Users/jon/google-cloud-sdk/path.bash.inc'; fi

@@ -87,4 +87,7 @@ function __prompt_command() {
   PS1="$COLOR_RED\u@\h$COLOR_GREEN:\W\n$COLOR_YELLOW$(__git_ps1 "(%s)")$COLOR_NORMAL\$ "
 }
 
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }__prompt_command;"
+if [ -z "$PROMPT_COMMAND_SETUP" ]; then
+  PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }__prompt_command;"
+fi
+export PROMPT_COMMAND_SETUP=true

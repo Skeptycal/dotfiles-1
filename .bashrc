@@ -51,7 +51,7 @@ gh() {
 }
 alias c='code-insiders'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias server='python -m SimpleHTTPServer 8000' # http.server in python 3
+alias server='python -m http.server 8000' # http.server in python 3
 alias show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hide-hidden-files='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"

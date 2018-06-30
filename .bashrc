@@ -2,16 +2,14 @@ SHELL_SESSION_HISTORY=0
 export EDITOR="code-insiders --wait"
 export HEROKU_ORGANIZATION=coffeeandcode
 
+# android studio
+export ANDROID_SDK_ROOT="/Users/$USER/Library/Android/sdk"
+
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-export PATH="$PATH:$HOME/.cargo/bin"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jon/google-cloud-sdk/path.bash.inc' ]; then source '/Users/jon/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jon/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/jon/google-cloud-sdk/completion.bash.inc'; fi
+yarn_bin_path="$(yarn global bin)"
+export PATH="$PATH:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$HOME/.cargo/bin:$yarn_bin_path"
 
 # bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -51,6 +49,7 @@ gh() {
 }
 alias c='code-insiders'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ctags='`brew --prefix`/bin/ctags'
 alias server='python -m http.server 8000' # http.server in python 3
 alias show-hidden-files='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hide-hidden-files='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
